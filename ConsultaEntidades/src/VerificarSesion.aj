@@ -5,10 +5,15 @@ public aspect VerificarSesion {
     void around() : verificars() {
     	if(IniciarSesion.sesionIniciada) {
     		proceed();
+    	}else {
+    		System.out.println("No se ha iniciado sesion");
     	}
         // MétodoInicioSesión
     } 
-  //  after() : nombrePointcut()  {
+    after() : verificars()  {
+    	if(IniciarSesion.sesionIniciada) {
+    	System.out.println("Si se inicio sesion");
         //Ya se inició sesión. (Puede imprimir un mensaje)
- //   }  
+    	}
+    }  
 }
