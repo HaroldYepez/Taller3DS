@@ -14,6 +14,9 @@ public aspect VerificarSesion {
     	if(IniciarSesion.sesionIniciada) {
     	System.out.println("Si se inicio sesion");
         //Ya se inició sesión. (Puede imprimir un mensaje)
+    	}else {
+    		Entidad.mensaje.setVisible(false);
+    		IniciarSesion.initialize();
     	}
     }  
 }
